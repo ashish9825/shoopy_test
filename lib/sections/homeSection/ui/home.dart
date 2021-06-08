@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shoopy_test/sections/homeSection/components/single_product.dart';
 import 'package:shoopy_test/sections/homeSection/model/products.dart';
@@ -36,7 +35,7 @@ class _HomeState extends State<Home> {
           'Shoopy',
           style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w600),
         ),
-       centerTitle: true,
+        centerTitle: true,
       ),
       body: SafeArea(child: _homeBody()),
     );
@@ -51,11 +50,11 @@ class _HomeState extends State<Home> {
                 onRefresh: () async => await productsNotifier.reload(),
                 color: kPrimaryColor,
                 child: productList.isEmpty
-                    ? ListView.builder(
-                        physics: AlwaysScrollableScrollPhysics(),
-                        itemCount: 1,
-                        itemBuilder: (context, index) => const Center(
-                          child: Text('No Products'),
+                    ? Center(
+                        child: Text(
+                          'No Products!',
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.w500),
                         ),
                       )
                     : NotificationListener<ScrollNotification>(
